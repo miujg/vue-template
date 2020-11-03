@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config build/webpack.prod.js ",
     "dll": "webpack --config build/webpack.dll.js",
-    "dev": "webpack-dev-server --config build/webpack.dev.js  --host 0.0.0.0"
+    "dev": "webpack-dev-server --config build/webpack.dev.js  --host 0.0.0.0",
+    "server": "node ./build/web.server.js"
   },
   "repository": {
     "type": "git",
@@ -57,10 +58,18 @@
   "dependencies": {
     "ant-design-vue": "^1.6.4",
     "axios": "^0.19.2",
+    "colors": "^1.4.0",
+    "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "express": "^4.17.1",
     "mockjs": "^1.1.0",
+    "npm": "^6.14.7",
+    "prop-types": "^15.7.2",
+    "swiper": "^6.1.2",
     "vue": "^2.6.11",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^3.4.3",
+    "vue-video-player": "^5.0.2",
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.1.0"
   }

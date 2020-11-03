@@ -1,19 +1,11 @@
 <template>
-  <div>
-    <h1>test</h1>
-    <!-- <router-view></router-view> -->
-    <a-button type="primary">
-      Primary
-    </a-button>
-  </div>
+    <h1>app</h1>
 </template>
 
 <script>
-
-export default {
-  
-};
+export default {};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
 </style>

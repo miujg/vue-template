@@ -40,7 +40,11 @@ const ressult = smart(base, {
         new webpack.NamedModulesPlugin(),
         // 热更新插件
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    // http://webpack.docschina.org/configuration/devtool/ 这里有一个表，总结得非常全面。
+    // 1. source-map:  源码映射，会生成map文件，标识错误的列和行 。 大而全， 而且生成独立的额文件
+    // 2. eval-source-map 不会产生单独的文件 将map文件集成到文件中。会表示错误的行和列。 对比source-map 是要小一些
+    devtool: 'eval-source-map',
 })
 
 

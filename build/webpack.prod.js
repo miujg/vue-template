@@ -5,7 +5,12 @@ const {smart} = require('webpack-merge'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'), // 用于css分离
     buidConfig = require('./build-config')
 
-buidConfig.scssRule.unshift(MiniCssExtractPlugin.loader)
+buidConfig.scssRule.unshift({
+    loader: MiniCssExtractPlugin.loader,
+    options:{
+        publicPath: '../',
+    }
+})
 
 module.exports = smart(base, {
     mode: 'production',

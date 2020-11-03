@@ -10,13 +10,24 @@ const path = require('path'),
     VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-    target: 'web',
     entry: path.resolve(__dirname, '../src/main.js'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '../dist'),
         // 设置publicpath 详细看：https://www.bilibili.com/video/av51693431?p=11
         // publicPath: 'http://127.0.0.1:8080/'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendors",
+                    chunks: "all"
+                }
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -49,7 +60,7 @@ module.exports = {
         new VueLoaderPlugin()
     ],
     module: {
-        // noParse: /jquery|lodash/,
+        noParse: /jquery|lodash/,
         rules: [
             // 文件处理
             {
@@ -59,7 +70,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             // 这里的单位是byte 字节
-                            limit: 20 * 1024,
+                            limit: 200 * 1024,
                             // 输出到相应的目录
                             outputPath: 'img/',
                             // 图片可以单独加域名
@@ -78,7 +89,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                include: [path.resolve(__dirname, '../src'), ],
+                include: path.resolve(__dirname, '../src'),
                 use: [{
                     loader: 'babel-loader',
                     options: {
@@ -102,7 +113,7 @@ module.exports = {
     },
     resolve: {
         // 关于第三方模块只会在此文件夹下面找，不会向上找
-        modules: ['node_modules'],
+        modules: [path.resolve('node_modules')],
         extensions: ['.js', '.vue', '.jsx'],
         // 别名
         alias: {
@@ -113,8 +124,5 @@ module.exports = {
             action: path.join(process.cwd(), 'src/redux/action')
         }
     },
-    // http://webpack.docschina.org/configuration/devtool/ 这里有一个表，总结得非常全面。
-    // 1. source-map:  源码映射，会生成map文件，标识错误的列和行 。 大而全， 而且生成独立的额文件
-    // 2. eval-source-map 不会产生单独的文件 将map文件集成到文件中。会表示错误的行和列。 对比source-map 是要小一些
-    devtool: 'eval-source-map',
+    
 }
