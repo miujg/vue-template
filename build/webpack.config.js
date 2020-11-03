@@ -42,6 +42,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             // 全局变量引入
             // $: 'jquery'
+            "axios": "axios",
         }),
         // dll 引用
         new webpack.DllReferencePlugin({

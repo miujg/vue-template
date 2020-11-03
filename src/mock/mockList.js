@@ -1,7 +1,5 @@
-import * as test from './test'
-import * as name from './name'
+import * as name from './home/mock.name'
 
 export {
-    test,
     name
 }
