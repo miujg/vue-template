@@ -1,14 +1,14 @@
 
+// 自动注入mock
 import Mock from 'mockjs'
-import * as mockList from './mockList'
 
 function createMock() {
-    for(let key in mockList) {
-        let temp = mockList[key] 
-        Mock.mock(temp.url, temp.type, () => {
-            return temp.cb()
-        })
-    }
+    const files = require.context('.', true, /\.js$/)
+    files.keys().forEach(key => {
+        if (key === './mockList.js' || key === './index.js') return
+        const item = files(key).default || files(key)
+        Mock.mock(item.url, item.type, () => item.cb())
+    })
 }
 
 export {

@@ -3,7 +3,7 @@
 const config = {
     devUrl: "localhost",
     devPort: '8086',
-    htmlTitle: "虚拟仿真",
+    htmlTitle: "vue-template",
     dllName: '_dll_vue',
     scssRule: [
         'css-loader',
