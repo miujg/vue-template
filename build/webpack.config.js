@@ -7,7 +7,9 @@ const path = require('path'),
     webpack = require('webpack'),
     Happypack = require('happypack'),
     buidConfig = require('./build-config'),
-    VueLoaderPlugin = require('vue-loader/lib/plugin')
+    VueLoaderPlugin = require('vue-loader/lib/plugin'),
+    // 依赖关系分析插件
+    // BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.js'),
@@ -58,7 +60,9 @@ module.exports = {
         // 
         new webpack.IgnorePlugin(/\.\/locale/,/moment/),
         // vue
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        // 依赖关系分析
+        // new BundleAnalyzerPlugin()
     ],
     module: {
         noParse: /jquery|lodash/,
