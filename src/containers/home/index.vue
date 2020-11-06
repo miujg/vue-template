@@ -1,6 +1,6 @@
 <template>
   <div class="user-wrapper">
-    <h1>个人信息：</h1>
+    <h1 @click="goUser">个人信息：</h1>
     <p><span>姓名：</span><span>{{user.name}}</span></p>
     <p><span>年龄：</span><span>{{user.age}}</span></p>
     <p><span>邮箱：</span><span>{{user.email}}</span></p>
@@ -13,6 +13,11 @@
     data() {
       return {
         user: {}
+      }
+    },
+    methods: {
+      goUser() {
+        this.$router.push('/user')
       }
     },
     mounted() {

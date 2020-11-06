@@ -14,14 +14,21 @@ const path = require('path'),
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.js'),
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist'),
         // 设置publicpath 详细看：https://www.bilibili.com/video/av51693431?p=11
         // publicPath: 'http://127.0.0.1:8080/'
     },
     optimization: {
         splitChunks: {
-            chunks: 'all',
+            chunks: 'async',
+            minSize: 20000,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+            automaticNameDelimiter: '~',
+            enforceSizeThreshold: 50000,
             cacheGroups: {
                 commons: {
                     test: /[\\/]node_modules[\\/]/,
