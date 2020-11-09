@@ -22,19 +22,34 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'async',
-            minSize: 20000,
+            // 单位：字节。当生成块大于此数值才会进行分割
+            minSize: 1,
             maxSize: 0,
             minChunks: 1,
+            // 按需加载时并行请求的最大数量将小于或者等于30
             maxAsyncRequests: 30,
+            // 初始页面加载时并行请求的最大数量将小于30
             maxInitialRequests: 30,
             automaticNameDelimiter: '~',
             enforceSizeThreshold: 50000,
             cacheGroups: {
-                commons: {
+                // commons: {
+                //     test: path.resolve(__dirname, '../src/containers'),
+                //     name: 'commons',
+                //     chunks: 'all'
+                // },
+                // 提取来自node_modules的包
+                vendors: {
+                    // 兼容unix和windows的写法
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendors",
                     chunks: "all"
-                }
+                },
+                // mock: {
+                //     test: /[\\/]node_modules[\\/]mockjs[\\/]/,
+                //     name: "mock",
+                //     chunks: "all"
+                // }
             }
         }
     },
