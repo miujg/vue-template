@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Index from 'con/home/index.vue'
-// import User from 'con/user/index.vue'
 
-const Index = () => import('con/home/index.vue')
-const User = () => import('con/user/index.vue')
+// webpack 魔法注释
+const Index = () => import(/* webpackChunkName: 'index-chunk-name' */'con/home/index.vue')
+const User = () => import(/* webpackChunkName: 'user-chunk-name' */'con/user/index.vue')
 
 Vue.use(VueRouter)
 const routes = [

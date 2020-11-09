@@ -16,13 +16,14 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist'),
+        chunkFilename: '[name].lazy-chunk.js'
         // 设置publicpath 详细看：https://www.bilibili.com/video/av51693431?p=11
         // publicPath: 'http://127.0.0.1:8080/'
     },
     optimization: {
         splitChunks: {
             chunks: 'async',
-            // 单位：字节。当生成块大于此数值才会进行分割
+            // 单位：字节。当生成块大于此数值才会进行分割，默认值为2000字节
             minSize: 1,
             maxSize: 0,
             minChunks: 1,
