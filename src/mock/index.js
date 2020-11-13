@@ -5,9 +5,9 @@ import Mock from 'mockjs'
 function createMock() {
     const files = require.context('.', true, /\.js$/)
     files.keys().forEach(key => {
-        if (key === './index.js') return
+        if (key.indexOf('mock') == -1) return
         const item = files(key).default || files(key)
-        Mock.mock(item.url, item.type, () => item.cb())
+        Mock.mock(item.url, item.type, (option) => item.cb(option))
     })
 }
 
