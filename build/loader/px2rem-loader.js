@@ -6,7 +6,7 @@
 const fs = require('fs')
 
 function loader(source) {
-  const req = /[0-9]+px/g
+  const req = /-?[0-9]+px/g
 
   let result = source.replace(req, (str) => {
       let num = str.replace('px', '')

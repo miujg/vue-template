@@ -37,6 +37,60 @@
 
 <style lang="scss">
   
-  @import './index.scss';
+.user-wrapper {
+  width: 100%;
+    .month {
+      width: 100%;
+      height: 629px;
+      background: url("https://cdn.img.up678.com/u/11226045/2020/10/23/1603415489195270750.png");
+      background-size: 100% 100%;
+      padding: 34px;
+      padding-bottom: 0;
+      position: relative;
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+          &:nth-child(2) {
+            font-size: 24;
+            color: #fff;
+          }
+          &:nth-child(1) {
+            display: flex;
+            align-items: center;
+            padding-left: 34;
+            width: 393;
+            height: 50;
+            background: #FFEF3C;
+            border-radius: 0 25px 25px 0;
+            position: relative;
+            left: -34px;
+            color: #19A5A2;
+            font-size: 28px;
+          }
+        }
+      }
+      .bottom {
+        bottom: 31px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 480px;
+        padding: 0 10px;
+        span {
+          &:nth-child(1) {
+            font-size: 28px;
+            color: #272727;
+            font-weight: bold;
+          }
+          &:nth-child(2) {
+            font-size: 24px;
+            color: #272727;
+          }
+        }
+      }
+    }
+  }
 
 </style>
