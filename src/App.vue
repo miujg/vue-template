@@ -17,5 +17,5 @@
 </script>
 
 <style lang="scss">
-    @import '~styles/_reset.scss'
+    @import '~styles/_reset.scss';
 </style>

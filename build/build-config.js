@@ -1,11 +1,13 @@
 // webpack 配置文件及其工具方法
+const path = require('path')
 
 const config = {
     devUrl: "localhost",
-    devPort: '8086',
+    devPort: '8087',
     htmlTitle: "vue-template",
     dllName: '_dll_vue',
     scssRule: [
+        
         'css-loader',
         {
             loader: 'postcss-loader',
@@ -17,7 +19,18 @@ const config = {
                 ]
             }
         },
-        'sass-loader'
+        'sass-loader',
+        {
+            loader: 'sass-resources-loader',
+            options: {
+                resources: [
+                    path.join(process.cwd(), 'src/public/styles/_func.scss'),
+                    path.join(process.cwd(), 'src/public/styles/_mixin.scss'),
+                    path.join(process.cwd(), 'src/public/styles/_variable.scss'),
+                ] 
+            }
+        }
+        
     ],
     createScripts: (scripts) => scripts.map(script => `<script src="${script}.js"></script> `).join(' ')
 }
