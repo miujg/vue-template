@@ -9,6 +9,7 @@ const config = {
     scssRule: [
         
         'css-loader',
+
         {
             loader: 'postcss-loader',
             options: {
@@ -19,7 +20,7 @@ const config = {
                 ]
             }
         },
-        'sass-loader',
+        'sass-loader',   
         {
             loader: 'sass-resources-loader',
             options: {
@@ -29,7 +30,10 @@ const config = {
                     path.join(process.cwd(), 'src/public/styles/_variable.scss'),
                 ] 
             }
-        }
+        },
+        {
+            loader: path.resolve(__dirname, './loader/px2rem-loader.js')
+        },
         
     ],
     createScripts: (scripts) => scripts.map(script => `<script src="${script}.js"></script> `).join(' ')
