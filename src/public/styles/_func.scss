@@ -1,0 +1,10 @@
+/*
+  此文件用于存放编写的函数
+*/
+
+@import './variable';
+
+// px 转 rem
+@function px2rem($px) {
+  @return #{$px*100/$ue-width}rem;
+}
