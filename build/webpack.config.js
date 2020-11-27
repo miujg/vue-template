@@ -1,5 +1,6 @@
 /**
  * webpack 公共模块 
+ * 1. sass-resources-loader 了解作用与配置方法
  */
 const path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -10,6 +11,7 @@ const path = require('path'),
     VueLoaderPlugin = require('vue-loader/lib/plugin'),
     // 依赖关系分析插件
     // BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.js'),
@@ -146,6 +148,7 @@ module.exports = {
         // 别名
         alias: {
             '@': path.join(process.cwd(), 'src'),
+            styles: path.join(process.cwd(), 'src/public/styles') ,
             images: path.join(process.cwd(), 'src/public/images'),
             com: path.join(process.cwd(),'src/component'),
             con: path.join(process.cwd(), 'src/containers'),
