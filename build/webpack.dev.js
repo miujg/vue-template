@@ -3,6 +3,7 @@ const {smart} = require('webpack-merge'),
     path = require('path'),
     webpack = require('webpack'),
     buidConfig = require('./build-config')
+    px2rem = require('./plugins/px2rem-plugin')
 
 buidConfig.scssRule.unshift('style-loader')
 
@@ -35,9 +36,11 @@ const ressult = smart(base, {
                         loader: 'postcss-loader',
                         options: {
                             plugins:[
+                                px2rem(),
                                 require('autoprefixer')({
                                     overrideBrowserslist: ['last 15 versions']
                                 })
+                                
                             ]
                         }
                     },
