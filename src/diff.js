@@ -48,7 +48,7 @@ function walk(oldNode, newNode, index, patchs) {
   let currentPatchs = []
   
   if(!(oldNode instanceof Element) && !(newNode instanceof Element)) {
-    if(oldNode !== newNode) currentPatchs.push({type: Text, text: newNode})
+    if(oldNode !== newNode) currentPatchs.push({type: TEXT, text: newNode})
   } else if(oldNode.type === newNode.type) {
     // 比较属性
     let attrs = diffAttr(oldNode.props, newNode.props)

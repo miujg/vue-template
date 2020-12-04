@@ -11,7 +11,7 @@ let virtualDom1 = createElement('ul', {class: 'ul'}, [
   createElement('li', {class: 'li'}, ['3']),
 ])
 
-let virtualDom2 = createElement('ul', {class: 'list'}, [
+let virtualDom2 = createElement('ul', {class: 'ul'}, [
   createElement('li', {class: 'li'}, ['a']),
   createElement('li', {class: 'li'}, ['2']),
   createElement('li', {class: 'li'}, ['c']),
@@ -33,6 +33,10 @@ let virtualDom2 = createElement('ul', {class: 'list'}, [
 // 遍历方式：先序深度优先遍历
 
 let patchs = diff(virtualDom1, virtualDom2)
+
+
+
+
 
 
 
