@@ -14,7 +14,7 @@ let virtualDom1 = createElement('ul', {class: 'ul'}, [
 let virtualDom2 = createElement('ul', {class: 'ul'}, [
   createElement('li', {class: 'li'}, ['a']),
   createElement('li', {class: 'li'}, ['2']),
-  createElement('li', {class: 'li'}, ['c']),
+  createElement('li', {class: 'li'}, []),
 ])
 
 // 虚拟dom 转变为真实的dom

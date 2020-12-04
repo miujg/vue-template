@@ -10,6 +10,9 @@ import { Element } from './element'
 
 const ATTRS = 'ATTRS'
 const TEXT = 'TEXT'
+const REMOVE = 'REMOVE'
+const REPLACE = 'REPLACE'
+let Index = 0
 
 /**
  *  属性比较
@@ -30,11 +33,9 @@ function diffAttr(oldAttrs, newAttrs) {
 }
 
 function diffChildred(oldNode, newNode, index, patchs) {
-  let i = index + 1
   oldNode.children.forEach((child, idx) => {
-    walk(child, newNode.children[idx], i, patchs)
+    walk(child, newNode.children[idx], ++Index, patchs)
   })
-
 }
 
 /**
@@ -46,17 +47,24 @@ function diffChildred(oldNode, newNode, index, patchs) {
  */
 function walk(oldNode, newNode, index, patchs) {
   let currentPatchs = []
-  
-  if(!(oldNode instanceof Element) && !(newNode instanceof Element)) {
+  if(!newNode) {
+    // 节点被删除了
+    currentPatchs.push({type: REMOVE, index})
+  } else if(!(oldNode instanceof Element) && !(newNode instanceof Element)) {
+    // 比较文本
     if(oldNode !== newNode) currentPatchs.push({type: TEXT, text: newNode})
   } else if(oldNode.type === newNode.type) {
-    // 比较属性
+    // type相同 比较属性
     let attrs = diffAttr(oldNode.props, newNode.props)
-    Object.keys(attrs).length > 0 ? currentPatchs.push({type: ATTRS, attrs}) : null
+    if(Object.keys(attrs).length > 0) {
+      currentPatchs.push({type: ATTRS, attrs})
+    }
     // 比较children
     diffChildred(oldNode, newNode, index, patchs)
+  } else {
+    // 新节点被替换掉了
+    currentPatchs.push({type: REPLACE, newNode})
   }
-
 
   if(currentPatchs.length > 0) patchs[index] = currentPatchs
 }
