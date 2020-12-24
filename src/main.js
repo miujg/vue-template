@@ -32,7 +32,137 @@ let virtualDom2 = createElement('ul', {class: 'ul'}, [
 // 2. key
 // 遍历方式：先序深度优先遍历
 
-let patchs = diff(virtualDom1, virtualDom2)
+// let patchs = diff(virtualDom1, virtualDom2)
+
+
+
+/**
+ * 节点类定义
+ */
+class Node {
+  constructor(key) {
+    this.key = key
+    this.left = null
+    this.right = null
+  }
+}
+
+
+/**
+ * 二叉搜索树
+ */
+class BinarySearchThree {
+  constructor() {
+    this.root = null
+  }
+
+  insert(key) {
+    if(this.root == null) {
+      // 第一个节点，作为根节点
+      this.root = new Node(key)
+    } else {
+      this.insertNode(this.root, key)
+    }
+  }
+
+  insertNode(node, key) {
+    if( key < node.key ) {
+      // 左侧插入
+      if(node.left == null) node.left = new Node(key)
+      else this.insertNode(node.left, key)
+    } else {
+      // 右侧插入
+      if(node.right == null) node.right = new Node(key)
+      else this.insertNode(node.right, key)
+    }
+  }
+
+  // 中序遍历 左 -》 中 -》 右
+  inOrderTraverse(callback) {
+    this.inOrderTraverseNode(this.root, callback)
+  }
+
+  inOrderTraverseNode(node, callback) {
+    // 基线条件
+    if(node != null) {
+      this.inOrderTraverseNode(node.left, callback)
+      callback(node.key)
+      this.inOrderTraverseNode(node.right, callback)
+    }
+  }
+
+  // 先序 中 -》 左 -》 右
+  preOrderTraverse(callback) {
+    this.preOrderTraverseNode(this.root, callback)
+  }
+
+  preOrderTraverseNode(node, callback) {
+    if(node != null) {
+      callback(node)
+      this.preOrderTraverseNode(node.left, callback)
+      this.preOrderTraverseNode(node.right, callback)
+    }
+  }
+
+  // 后序 左-》右-》中
+  postOrderTraverse(callback) {
+    this.postOrderTraverseNode(this.root, callback)
+  }
+
+  postOrderTraverseNode(node, callback) {
+    if(node != null) {
+      this.postOrderTraverseNode(node.left, callback)
+      this.postOrderTraverseNode(node.right, callback)
+      callback(node)
+    }
+  }
+  
+  // 最小值
+  min() {
+    // 获取最左边的节点
+    
+  }
+  // 最大值
+  max() {
+    // 获取右边的节点
+
+  }
+  // 特定值
+  search(key) {
+    return this.searchNode(this.root, key)
+  }
+  searchNode(node, key) {
+    if(node == null) return null
+    if(node.key == key) return node
+    if(key < node.key) {
+      return this.searchNode(node.left, key)
+    } else {
+      return this.searchNode(node.right, key)
+    }
+  }
+}
+
+const tree = new BinarySearchThree()
+tree.insert(11)
+tree.insert(7)
+tree.insert(15)
+tree.insert(5)
+tree.insert(3)
+tree.insert(6)
+tree.insert(9)
+tree.insert(8)
+tree.insert(10)
+tree.insert(13)
+tree.insert(12)
+tree.insert(14)
+tree.insert(20)
+tree.insert(18)
+tree.insert(25)
+
+const printNode = val => val
+tree.postOrderTraverse(printNode)
+
+console.log(tree.search(100))
 
 
 
