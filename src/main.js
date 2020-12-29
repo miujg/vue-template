@@ -8,8 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 生产模式下 启动mock
 // if(process.env.NODE_ENV==='development') {
 
-import {createMock}  from '@/mock/index.js'
-createMock()
+// import {createMock}  from '@/mock/index.js'
+// createMock()
  
 // Vue.use(VideoPlayer)
 Vue.use(ElementUI)

@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     data() {
       return {
@@ -21,10 +22,23 @@
       }
     },
     mounted() {
+      var data = new FormData()
+      data.set('name', 'xxx')
+
+      // axios({
+      //   url: 'http://127.0.0.1:3000/user',
+      //   data: {name: 'xxx'},
+      //   method: 'post',
+      //   headers: {
+      //     'Content-Type': 'application/json;charset=UTF-8'
+      //     // 'Content-Type': 'multipart/form-data;charset=utf-8'
+      //   }
+      // })
+
+
       axios({
-        url: '/mjg/test'
-      }).then((res) => {
-        this.user = res.data.data
+        url: 'http://127.0.0.1:3000/user',
+        method: 'put'
       })
     }
   }
