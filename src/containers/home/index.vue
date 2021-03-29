@@ -1,15 +1,15 @@
 <template>
   <div class="user-wrapper">
     <h1 @click="goUser">个人信息：</h1>
-    <p><span>姓名：</span><span>{{user.name}}</span></p>
-    <p><span>年龄：</span><span>{{user.age}}</span></p>
-    <p><span>邮箱：</span><span>{{user.email}}</span></p>
-    <p><span>简介：</span><span>{{user.desc}}</span></p>
+    <p><span>姓名：</span><span>{{baseInfo.name}}</span></p>
+    <p><span>年龄：</span><span>{{baseInfo.age}}</span></p>
+
+    <button @click="editUser">EDIT</button>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+  import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
@@ -19,27 +19,18 @@
     methods: {
       goUser() {
         this.$router.push('/user')
+      },
+      editUser() {
+        this.$store.commit('user/setBaseinfo', {name: 'xx', age: 25})
       }
     },
-    mounted() {
-      var data = new FormData()
-      data.set('name', 'xxx')
-
-      // axios({
-      //   url: 'http://127.0.0.1:3000/user',
-      //   data: {name: 'xxx'},
-      //   method: 'post',
-      //   headers: {
-      //     'Content-Type': 'application/json;charset=UTF-8'
-      //     // 'Content-Type': 'multipart/form-data;charset=utf-8'
-      //   }
-      // })
-
-
-      axios({
-        url: 'http://127.0.0.1:3000/user',
-        method: 'put'
+    computed: {
+      ...mapGetters({
+        baseInfo: 'user/getBaseinfo'
       })
+    },
+    mounted() {
+      this.$store.dispatch('user/getUser')
     }
   }
 </script>

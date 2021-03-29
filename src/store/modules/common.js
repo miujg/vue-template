@@ -1,4 +1,5 @@
 export const common = {
+    namespaced: true,
     state:()=>{
         return {
             showBanner:true,
@@ -7,7 +8,7 @@ export const common = {
         }
     },
     getters:{
-
+        
     },
     mutations:{
         showBanner(state){
