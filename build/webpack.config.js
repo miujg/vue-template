@@ -7,7 +7,8 @@ const path = require('path'),
     webpack = require('webpack'),
     Happypack = require('happypack'),
     buidConfig = require('./build-config'),
-    VueLoaderPlugin = require('vue-loader/lib/plugin'),
+    { VueLoaderPlugin } = require('vue-loader')
+
     // 依赖关系分析插件
     // BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 

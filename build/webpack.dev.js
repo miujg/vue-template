@@ -4,6 +4,7 @@ const {smart} = require('webpack-merge'),
     webpack = require('webpack'),
     buidConfig = require('./build-config')
 
+
 buidConfig.scssRule.unshift('style-loader')
 
 const ressult = smart(base, {

@@ -3,3 +3,5 @@ dist
 .DS_Store
 .history
 package-lock.json
+yarn-error.log
+yarn.lock
