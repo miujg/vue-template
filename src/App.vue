@@ -1,10 +1,15 @@
 <template>
-  <h1>x</h1>
+  <div>
+    <h1>xxx</h1>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    
+  },
+})
 </script>
-
-<style lang="scss">
-
-</style>

@@ -12,7 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, '../dll'),
         // 接受导出结果的变量
         library: '_dll_[name]',
-        libraryTarget: 'var'
+        // libraryTarget: 'var'
     },
     plugins: [
         new CleanWebpackPlugin(),

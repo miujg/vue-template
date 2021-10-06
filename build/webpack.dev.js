@@ -4,7 +4,6 @@ const {smart} = require('webpack-merge'),
     webpack = require('webpack'),
     buidConfig = require('./build-config')
 
-
 buidConfig.scssRule.unshift('style-loader')
 
 const ressult = smart(base, {
@@ -38,9 +37,9 @@ const ressult = smart(base, {
         ]
     },
     plugins: [ 
-        new webpack.NamedModulesPlugin(),
+        // new webpack.NamedModulesPlugin(),
         // 热更新插件
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()
     ],
     // http://webpack.docschina.org/configuration/devtool/ 这里有一个表，总结得非常全面。
     // 1. source-map:  源码映射，会生成map文件，标识错误的列和行 。 大而全， 而且生成独立的额文件
