@@ -82,7 +82,12 @@ module.exports = {
     //   },
     // ]),
     //
-    new webpack.IgnorePlugin(/\.\/locale/, /moment/),
+    // new webpack.IgnorePlugin(/\.\/locale/, /moment/),
+    new webpack.IgnorePlugin({
+      checkResource(resource) {
+        return false
+      }
+    })
     // 依赖关系分析
     // new BundleAnalyzerPlugin()
   ],

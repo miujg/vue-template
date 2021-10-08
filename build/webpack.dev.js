@@ -1,4 +1,4 @@
-const {smart} = require('webpack-merge'),
+const { merge } = require('webpack-merge'),
     base = require('./webpack.config'),
     path = require('path'),
     webpack = require('webpack'),
@@ -6,13 +6,13 @@ const {smart} = require('webpack-merge'),
 
 buidConfig.scssRule.unshift('style-loader')
 
-const ressult = smart(base, {
+const ressult = merge(base, {
     mode: 'development',
     devServer: {
         // 启用热更新
         hot: true,
         port: buidConfig.devPort,
-        contentBase: path.resolve(__dirname, '../dist'),
+        // contentBase: path.resolve(__dirname, '../dist'),
         compress: true,
         // 代理配置
         proxy: {
