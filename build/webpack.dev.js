@@ -2,7 +2,8 @@ const { merge } = require('webpack-merge'),
     base = require('./webpack.config'),
     path = require('path'),
     webpack = require('webpack'),
-    buidConfig = require('./build-config')
+    buidConfig = require('./build-config'),
+    ESLintPlugin = require('eslint-webpack-plugin')
 
 buidConfig.scssRule.unshift('style-loader')
 
@@ -40,6 +41,9 @@ const ressult = merge(base, {
         // new webpack.NamedModulesPlugin(),
         // 热更新插件
         // new webpack.HotModuleReplacementPlugin()
+        new ESLintPlugin({
+          extensions: ['js', 'ts', 'vue']
+        })
     ],
     // http://webpack.docschina.org/configuration/devtool/ 这里有一个表，总结得非常全面。
     // 1. source-map:  源码映射，会生成map文件，标识错误的列和行 。 大而全， 而且生成独立的额文件

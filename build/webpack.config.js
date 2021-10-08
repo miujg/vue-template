@@ -7,7 +7,8 @@ const path = require("path"),
   webpack = require("webpack"),
   Happypack = require("happypack"),
   buidConfig = require("./build-config"),
-  { VueLoaderPlugin } = require("vue-loader");
+  { VueLoaderPlugin } = require("vue-loader"),
+  
 // 依赖关系分析插件
 // BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -83,6 +84,7 @@ module.exports = {
     // ]),
     //
     // new webpack.IgnorePlugin(/\.\/locale/, /moment/),
+    // webpack5 新语法
     new webpack.IgnorePlugin({
       checkResource(resource) {
         return false
