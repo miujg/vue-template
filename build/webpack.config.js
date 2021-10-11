@@ -107,6 +107,23 @@ module.exports = {
           },
         ],
       },
+      // md文件处理
+      {
+        test: /\.md$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, "../src"),
+        use:[
+          {
+            loader: "vue-loader",
+          },
+          {
+            loader: 'vue-md-loader',
+          },
+          // {
+          //   loader: path.resolve(__dirname, './md-loader/index.js')
+          // }
+        ],
+      },
       // ts
       {
         test: /\.(t|j)s$/,

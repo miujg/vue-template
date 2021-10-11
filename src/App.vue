@@ -1,26 +1,30 @@
 <template>
   <div>
     <h1>xxx</h1>
+    <test />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-interface IObj {
-  name: string
-  age: number
-}
+// import {
+//   openBlock as _openBlock,
+//   createElementBlock as _createElementBlock
+// } from 'vue'
+import './test.md'
 export default defineComponent({
+  components: {
+    // 'element-demo11': (function () {
+    //   function render() {
+    //     return _openBlock(), _createElementBlock('h1', null, 'jgmiu')
+    //   }
+    //   return {
+    //     render
+    //   }
+    // })()
+  },
   setup() {
-    const obj: IObj = {
-      name: 'xxx',
-      age: 26
-    }
-    console.log(obj)
-    const test = (a: string) => {
-      console.log(a)
-    }
-    test('111')
+    console.log('xxx')
   }
 })
 </script>
