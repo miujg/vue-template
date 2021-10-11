@@ -136,6 +136,15 @@ module.exports = {
                 use: [{
                     loader: 'vue-loader'
                 }],
+            },
+            {
+              test: /\.md$/,
+              exclude: /node_modules/,
+              include: path.resolve(__dirname, '../src'),
+              use: [
+                {loader: 'vue-loader'},
+                {loader: path.resolve(__dirname, './md-loader/index.js')}
+              ]
             }
         ]
     },
