@@ -2,9 +2,7 @@
   <div class="demo-block">
     <!-- 组件样子 -->
     <div class="source-wrapper">
-      <slot name="source">
-        <input type="text" />
-      </slot>
+      <slot name="source"></slot>
     </div>
     <!-- code -->
     <div class="code-wrapper" :class="codeClass" :style="codeStyle">
@@ -14,21 +12,7 @@
             <p>一段注释</p>
           </slot>
         </div>
-        <slot name="highlight">
-          <pre v-pre>
-            <code class="html">&lt;el-input v-model=&quot;input&quot; placeholder=&quot;请输入内容&quot;&gt;&lt;/el-input&gt;
-              &lt;script&gt;
-              export default {
-                data() {
-                  return {
-                    input: ''
-                  }
-                }
-              }
-              &lt;/script&gt;
-            </code>
-          </pre>
-        </slot>
+        <slot name="highlight"></slot>
       </div>
     </div>
     <div class="foot-wrapper" @click="handleClick">
