@@ -108,22 +108,6 @@ module.exports = {
         ],
       },
       // md文件处理
-      {
-        test: /\.md$/,
-        exclude: /node_modules/,
-        include: path.resolve(__dirname, "../src"),
-        use:[
-          {
-            loader: "vue-loader",
-          },
-          {
-            loader: 'vue-md-loader',
-          },
-          // {
-          //   loader: path.resolve(__dirname, './md-loader/index.js')
-          // }
-        ],
-      },
       // ts
       {
         test: /\.(t|j)s$/,
@@ -164,7 +148,7 @@ module.exports = {
   resolve: {
     // 关于第三方模块只会在此文件夹下面找，不会向上找
     modules: [path.resolve("node_modules")],
-    extensions: [".js", ".vue", ".jsx"],
+    extensions: [".js", ".ts",".vue", ".jsx"],
     // 别名
     alias: {
       "@": path.join(process.cwd(), "src"),
