@@ -19,6 +19,6 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-types": "off",
-    "eslint-disable-next-line": "no-debugger"
+    "eslint-disable-next-line": "off"
   },
 };

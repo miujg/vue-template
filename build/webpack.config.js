@@ -71,11 +71,11 @@ module.exports = {
       // $: 'jquery'
       axios: "axios",
     }),
-    // // dll 引用
+    // dll 引用
     // new webpack.DllReferencePlugin({
     //   manifest: path.resolve(__dirname, "../dll", "manifest.json"),
     // }),
-    // // copy dll 文件
+    // // // copy dll 文件
     // new CopyWebpackPlugin([
     //   {
     //     from: path.resolve(__dirname, "../dll"),
@@ -104,6 +104,7 @@ module.exports = {
         use: [
           {
             loader: "vue-loader",
+            options: { hotReload: true }
           },
         ],
       },
