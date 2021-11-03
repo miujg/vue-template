@@ -42,7 +42,8 @@ const ressult = merge(base, {
         // 热更新插件
         // new webpack.HotModuleReplacementPlugin()
         new ESLintPlugin({
-          extensions: ['js', 'ts', 'vue']
+          extensions: ['js', 'ts', 'vue'],
+          exclude: ['node_modules']
         })
     ],
     // http://webpack.docschina.org/configuration/devtool/ 这里有一个表，总结得非常全面。

@@ -111,7 +111,7 @@ module.exports = {
       // md文件处理
       // ts
       {
-        test: /\.(t|j)s$/,
+        test: /\.(j|t)s$/,
         exclude: /node_modules/,
         // include: path.resolve(__dirname, "../src"),
         use: {
@@ -120,6 +120,23 @@ module.exports = {
             cacheDirectory: true,
           },
         },
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        // include: path.resolve(__dirname, "../src"),
+        use: [
+          // {
+          //   loader: "babel-loader",
+          //   options: {
+          //     cacheDirectory: true,
+          //   }
+          // }, 
+          {
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.vue$/] }
+          }
+        ]
       },
       // 文件处理
       {
