@@ -1,5 +1,5 @@
 <template>
-  <h1>111</h1>
+  <img src="~assets/logo.png" alt="">
 </template>
 
 <script lang="ts">
@@ -16,8 +16,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-  h1 {
-    box-sizing: border-box;
-  }
-</style>
+// <style lang="scss">
+//   h1 {
+//     box-sizing: border-box;
+//   }
+// </style>
